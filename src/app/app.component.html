@@ -1,2 +1,16 @@
-<app-toolbar></app-toolbar>
-<h1>App component works</h1>
+<mat-sidenav-container class="mat-container">
+  <mat-sidenav
+    #sidenav
+    mode="slide"
+    [(opened)]="opened"
+    class="mat-sidenav-container">
+    sidenav-content
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-toolbar (sidenavToggle)="sidenav.toggle()"></app-toolbar>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
