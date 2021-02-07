@@ -6,9 +6,21 @@
     (click)="onToggleSidenav()">
     <mat-icon>menu</mat-icon>
   </button>
-  <span class="toolbar-title">{{ 'HOME.TITLE' | translate }}</span>
+  <span class="toolbar-title">{{ 'TOOLBAR.TITLE' | translate }}</span>
   <span class="toolbar-spacer"></span>
-  <button mat-icon-button class="lang-icon" aria-label="Open languages">
+  <button
+    mat-button
+    class="lang-icon"
+    aria-label="Open languages"
+    [matMenuTriggerFor]="menu">
     <mat-icon>language</mat-icon>
+    <mat-menu #menu="matMenu">
+      <button
+        mat-menu-item
+        *ngFor="let language of languages"
+        (click)="onLanguageClick(language)">
+        {{ language | uppercase }}
+      </button>
+    </mat-menu>
   </button>
 </mat-toolbar>
