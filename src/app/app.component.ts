@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import {SidenavService} from './services/sidenav/sidenav.service';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +9,18 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'financial-organizer-fe';
-  opened = true;
-  _translate: TranslateService;
+  opened: boolean = false;
 
-  constructor(translate: TranslateService) {
+  constructor(private translate: TranslateService, private sidenav: SidenavService) {
     translate.setDefaultLang('en');
     translate.use('en');
-    this._translate = translate;
+    sidenav.toggle$.subscribe(data => {
+      this.opened = data as boolean;
+      console.log('subscription' + this.opened);
+    });
   }
 
-  public languageToogle(language: string) {
-    this._translate.use(language);
+  public languageToggle(language: string): void {
+    this.translate.use(language);
   }
 }

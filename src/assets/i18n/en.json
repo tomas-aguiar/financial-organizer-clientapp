@@ -1,5 +1,15 @@
 {
-  "TOOLBAR" : {
+  "Expense": "Expense",
+  "Revenue": "Revenue",
+  "Balance": "Balance",
+  "Budget": "Bugdet",
+  "Rent": "Rent",
+  "INFORMATION": "Information",
+  "TOOLBAR": {
     "TITLE": "Financial Organizer"
+  },
+  "CATEGORY": {
+    "ID": "Id",
+    "NAME": "Name"
   }
 }

@@ -4,13 +4,12 @@
     mode="slide"
     [(opened)]="opened"
     class="mat-sidenav-container">
-    sidenav-content
+    <app-sidenav></app-sidenav>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <app-toolbar
-      (sidenavToggle)="sidenav.toggle()"
-      (languageToogle)="languageToogle($event)">
+      (languageToggle)="languageToggle($event)">
     </app-toolbar>
     <main>
       <router-outlet></router-outlet>

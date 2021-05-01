@@ -1,5 +1,15 @@
 {
+  "Expense": "Despesa",
+  "Revenue": "Receita",
+  "Balance": "Saldo",
+  "Budget": "Orçamento",
+  "Rent": "Aluguel",
+  "INFORMATION": "Informação",
   "TOOLBAR" : {
     "TITLE": "Organizador Financeiro"
+  },
+  "CATEGORY": {
+    "ID": "Id",
+    "NAME": "Nome"
   }
 }

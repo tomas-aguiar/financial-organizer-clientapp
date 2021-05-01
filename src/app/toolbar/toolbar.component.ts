@@ -1,21 +1,21 @@
-import {Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
+import {SidenavService} from '../services/sidenav/sidenav.service';
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.sass']
 })
 export class ToolbarComponent {
-  @Output() public sidenavToggle = new EventEmitter();
-  @Output() public languageToogle = new EventEmitter<string>();
+  @Output() public languageToggle = new EventEmitter<string>();
   languages: string[] = ['en', 'br'];
 
-  constructor() { }
+  constructor(private sidenav: SidenavService) { }
 
-  public onToggleSidenav = () => {
-    this.sidenavToggle.emit();
+  public onLanguageClick(language: string): void {
+    this.languageToggle.emit(language);
   }
 
-  public onLanguageClick(language: string) {
-    this.languageToogle.emit(language);
+  toggle(): void {
+    this.sidenav.onToggle();
   }
 }
